@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brooklyn Nail Bar - Main Menu</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Pixelify+Sans');
+
+    body {
+      background: #000000;
+      color: #fff;
+      font-size: 1.5rem;
+      font-family: "Arial", "Helvetica Neue", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sparkles-bg {
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    @keyframes fade-in-out {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Arial", "Helvetica Neue", sans-serif;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(26, 26, 26, 0.4), rgba(0, 0, 0, 0.4)), 
+                  url('nailsalonbackground1.png');
+      background-size: cover;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #ffffff;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      margin: 0;
+      padding: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .left-panel {
+      flex: 0 0 33%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .left-panel img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .vertical-divider {
+      width: 6px;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+      /* box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); */
+      /* animation: pulse 3s ease-in-out infinite; */
+    }
+
+    .right-panel {
+      flex: 0 0 66%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .salon-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: #FFD700;
+      text-align: center;
+      margin: 30px 0 15px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      color: #FFD700;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-info {
+      margin-bottom: 30px;
+    }
+
+    .phone {
+      color: #FFD700;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 15px 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .address {
+      color: #FFD700;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 15px 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .business-hours {
+      margin-bottom: 30px;
+    }
+
+    .business-hours h4 {
+      color: #FFD700;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .business-hours p {
+      color: #ffffff;
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin: 8px 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .appointment-note {
+      color: #ffffff;
+      font-style: italic;
+      font-size: 1.3rem;
+      margin-top: 20px;
+      animation: fadeInOut 3s ease-in-out infinite;
+    }
+
+    @media (min-width: 1400px) {
+      .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 15000px;
+      }
+    }
+
+    /* TV Display Optimizations */
+    @media (max-width: 1920px) {
+      .salon-name { font-size: 6rem; }
+      .subtitle { font-size: 2rem; }
+      .phone { font-size: 3rem; }
+      .address { font-size: 2rem; }
+      .business-hours h4 { font-size: 3rem; }
+      .business-hours p { font-size: 2rem; }
+      .appointment-note { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkles-bg"></div>
+  <div class="container">
+    
+    <!-- LEFT PANEL - IMAGE -->
+    <div class="left-panel">
+      <img src="nailsalongpic1.png">
+    </div>
+
+    <!-- VERTICAL GOLD DIVIDER -->
+    <div class="vertical-divider"></div>
+
+    <!-- RIGHT PANEL - INFORMATION -->
+    <div class="right-panel">
+      <h1 class="salon-name">BROOKLYN NAIL BAR</h1>
+      <div class="subtitle">Luxury Nail & Beauty Services</div>
+      
+      <div class="contact-info">
+        <p class="phone"><i class="bi bi-telephone-fill"></i> (216) 727-0005</p>
+        <p class="address"><i class="bi bi-geo-alt-fill"></i> 4744 Ridge Rd, Brooklyn, OH 44144</p>
+      </div>
+      
+      <div class="business-hours">
+        <h4>BUSINESS HOURS</h4>
+        <p>Monday – Saturday: 9:30am – 7:00pm</p>
+        <p>Sunday: 12:00pm – 6:00pm</p>
+        <p class="appointment-note"><strong>Appointments & Walk-ins Welcome</strong></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+<script>
+  class Sparkles {
+    constructor(sparkleCount = 300) {
+      this.sparkleCount = sparkleCount;
+      this.colors = [
+        '#FFD700', // gold
+        '#FFC300', // golden yellow
+        '#FFB700', // deeper gold
+        '#FFA500', // orange-gold accent
+        '#FFF5BA'  // soft pale gold shimmer
+      ];
+    }
+  
+    render() {
+      const container = document.querySelector('.sparkles-bg');
+      if (!container) {
+        console.error('Sparkles container with class .sparkles-bg not found.');
+        return;
+      }
+  
+      for (let i = 0; i < this.sparkleCount; i++) {
+        const sparkle = document.createElement("div");
+        const size = Math.random() * 3 + 1;
+        const colorHex = this.colors[Math.floor(Math.random() * this.colors.length)];
+  
+        sparkle.style.position = 'absolute';
+        sparkle.style.borderRadius = '50%';
+        sparkle.style.animation = `fade-in-out 5s ease-in-out infinite`;
+        sparkle.style.backgroundColor = colorHex;
+        sparkle.style.width = `${size}px`;
+        sparkle.style.height = `${size}px`;
+        sparkle.style.top = `${Math.random() * 100}vh`;
+        sparkle.style.left = `${Math.random() * 100}vw`;
+        sparkle.style.animationDelay = `${Math.random() * 5}s`;
+        sparkle.style.boxShadow = `0 0 ${size * 2}px ${colorHex}`;
+  
+        container.appendChild(sparkle);
+      }
+    }
+  }
+  
+  // Wait for the DOM to be fully loaded before running the script
+  document.addEventListener('DOMContentLoaded', () => {
+    const sparkles = new Sparkles();
+    sparkles.render();
+  });
+</script>
+</html>
