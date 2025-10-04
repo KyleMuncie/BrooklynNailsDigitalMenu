@@ -72,7 +72,7 @@
 
     .page-title {
       text-align: center;
-      font-size: 5rem;
+      font-size: 10rem;
       font-family: 'Dancing Script', cursive;
       color: #FFD700;
       margin-bottom: 30px;
@@ -112,33 +112,34 @@
     }
 
     .pedicure-name {
-      font-size: 3.5rem;
+      font-size: 7rem;
       font-family: 'Dancing Script', cursive;
       color: #FFD700;
     }
 
     .pedicure-price {
-      font-size: 3rem;
+      font-size: 6rem;
       font-weight: bold;
       color: #FFA500;
     }
 
     .pedicure-description {
-      font-size: 2.2rem;
+      font-size: 4rem;
       color: #ccc;
     }
 
     .pedicure-image img {
-      width: 200px;
+      width: 750px;
       border-radius: 10px;
       object-fit: cover;
       align-self: flex-start;   /* ensures image aligns to top */
+      transition: opacity 0.5s ease-in-out;
     }
 
     .extras-table {
       margin-top: 30px;
       border-collapse: collapse;
-      font-size: 1.2rem;
+      font-size: 3.2rem;
       min-width: 800px;
       border-top: 2px solid #FFD700;
     }
@@ -147,6 +148,11 @@
     }
     .extras-table tr + tr td {
       border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .plus-sign {
+      color: #FFA500;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -204,13 +210,18 @@
           <div class="pedicure-text">
             <div class="pedicure-header">
               <div class="pedicure-name">Detoxing Royal Volcano</div>
-              <div class="pedicure-price">$72</div>
+              <div class="pedicure-price">$75</div>
             </div>
             <div class="pedicure-description">
               Classic Pedicure + fizzing volcano crystal soak, callus removal, pumice, crystal sugar scrub, volcano mask, hot stone massage, paraffin, 2 hot towels & choice of regular polish.
             </div>
           </div>
-          <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Royal Volcano"></div>
+          <div class="pedicure-image">
+            <img src="volcano1.png" 
+                alt="Royal Volcano" 
+                data-images='["volcano2.png", "volcano3.png"]'>
+          </div>
+          <!-- <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Royal Volcano"></div> -->
         </div>
       </div>
     </div>
@@ -218,15 +229,34 @@
     <!-- Extras table -->
     <table class="extras-table">
       <tbody>
-        <tr><td>Add French Tips</td><td>$5</td></tr>
-        <tr><td>Add Gel to Pedicure</td><td>$20</td></tr>
-        <tr><td>Gel (Shellac) Polish Change Toes</td><td>$35</td></tr>
+        <tr><td>Add French Tips</td><td>$5<span class="plus-sign">+</span></td></tr>
+        <tr><td>Add Gel to Pedicure</td><td>$20<span class="plus-sign">+</span></td></tr>
+        <tr><td>Gel (Shellac) Polish Change Toes</td><td>$35<span class="plus-sign">+</span></td></tr>
       </tbody>
     </table>
   </div>
   <script src="script.js"></script>
 </body>
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const flipInterval = 5000; // change every 4 seconds
+    const images = document.querySelectorAll(".pedicure-image img");
+
+    images.forEach(img => {
+      const imageList = JSON.parse(img.getAttribute("data-images"));
+      let index = 0;
+
+      setInterval(() => {
+        index = (index + 1) % imageList.length;
+        img.style.opacity = 0; // fade out
+        setTimeout(() => {
+          img.src = imageList[index];
+          img.style.opacity = 1; // fade in
+        }, 500);
+      }, flipInterval);
+    });
+  });
+
   class Sparkles {
   constructor(sparkleCount = 300) {
     this.sparkleCount = sparkleCount;
