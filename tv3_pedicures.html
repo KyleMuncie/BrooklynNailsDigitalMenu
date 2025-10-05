@@ -1,325 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brooklyn Nail Bar - Pedicures</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Pixelify+Sans');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brooklyn Nail Bar - Pedicures</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Jersey+15&family=Pixelify+Sans");
 
-    body {
-    background: #000000;
-    color: #fff;
-    font-size: 1.5rem;
-    font-family: "Arial", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    }
+      body {
+        background: #000000;
+        color: #fff;
+        font-size: 1.5rem;
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
 
-    .sparkles-bg {
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -1;
-    }
+      .sparkles-bg {
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: -1;
+      }
 
-    @keyframes fade-in-out {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-    }
+      @keyframes fade-in-out {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    /* html, body {
+      /* html, body {
       width: 100%;
       height: 100%;
       overflow: hidden;
     } */
 
-    body {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(26, 26, 26, 0.4), rgba(0, 0, 0, 0.4)),
-                  url('nailsalonbackground3.png') no-repeat center bottom / cover fixed;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-family: Arial, sans-serif;
-    }
+      body {
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.4),
+            rgba(26, 26, 26, 0.4),
+            rgba(0, 0, 0, 0.4)
+          ),
+          url("nailsalonbackground3.png") no-repeat center bottom / cover fixed;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, sans-serif;
+      }
 
-    .page-wrapper {
-      width: 100%;
-      height: 100%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+      .page-wrapper {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
+      .page-title {
+        text-align: center;
+        font-size: 10rem;
+        font-family: "Dancing Script", cursive;
+        color: #ffd700;
+        margin-bottom: 30px;
+      }
 
-    .page-title {
-      text-align: center;
-      font-size: 10rem;
-      font-family: 'Dancing Script', cursive;
-      color: #FFD700;
-      margin-bottom: 30px;
-    }
+      .pedicure-columns {
+        display: flex;
+        gap: 40px;
+        width: 100%;
+      }
 
-    .pedicure-columns {
-      display: flex;
-      gap: 40px;
-      width: 100%;
-    }
+      .pedicure-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
 
-    .pedicure-column {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
+      .pedicure-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px;
+        border-radius: 10px;
+      }
 
-    .pedicure-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      padding: 15px;
-      border-radius: 10px;
-    }
+      .pedicure-text {
+        flex: 1;
+        margin-right: 15px;
+      }
 
-    .pedicure-text {
-      flex: 1;
-      margin-right: 15px;
-    }
+      .pedicure-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 8px;
+      }
 
-    .pedicure-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-    }
+      .pedicure-name {
+        font-size: 7rem;
+        font-family: "Dancing Script", cursive;
+        color: #ffd700;
+      }
 
-    .pedicure-name {
-      font-size: 7rem;
-      font-family: 'Dancing Script', cursive;
-      color: #FFD700;
-    }
+      .pedicure-price {
+        font-size: 6rem;
+        font-weight: bold;
+        color: #ffa500;
+      }
 
-    .pedicure-price {
-      font-size: 6rem;
-      font-weight: bold;
-      color: #FFA500;
-    }
+      .pedicure-description {
+        font-size: 4rem;
+        color: #ccc;
+      }
 
-    .pedicure-description {
-      font-size: 4rem;
-      color: #ccc;
-    }
+      .pedicure-image img {
+        width: 750px;
+        border-radius: 10px;
+        object-fit: cover;
+        align-self: flex-start; /* ensures image aligns to top */
+        transition: opacity 0.5s ease-in-out;
+      }
+      .pedicure-image-single img {
+        width: 750px;
+        height: 750px;
+        border-radius: 10px;
+        object-fit: cover;
+        align-self: flex-start; /* ensures image aligns to top */
+        transition: opacity 0.5s ease-in-out;
+      }
 
-    .pedicure-image img {
-      width: 750px;
-      border-radius: 10px;
-      object-fit: cover;
-      align-self: flex-start;   /* ensures image aligns to top */
-      transition: opacity 0.5s ease-in-out;
-    }
-    .pedicure-image-single img {
-      width: 750px;
-      height: 750px;
-      border-radius: 10px;
-      object-fit: cover;
-      align-self: flex-start;   /* ensures image aligns to top */
-      transition: opacity 0.5s ease-in-out;
-    }
+      .extras-table {
+        margin-top: 30px;
+        border-collapse: collapse;
+        font-size: 3.2rem;
+        min-width: 800px;
+        border-top: 2px solid #ffd700;
+      }
+      .extras-table td {
+        padding: 10px 20px;
+      }
+      .extras-table tr + tr td {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
 
-    .extras-table {
-      margin-top: 30px;
-      border-collapse: collapse;
-      font-size: 3.2rem;
-      min-width: 800px;
-      border-top: 2px solid #FFD700;
-    }
-    .extras-table td {
-      padding: 10px 20px;
-    }
-    .extras-table tr + tr td {
-      border-top: 1px solid rgba(255,255,255,0.2);
-    }
+      .plus-sign {
+        color: #ffa500;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sparkles-bg"></div>
+    <div class="page-wrapper">
+      <h1 class="page-title">Pedicures</h1>
 
-    .plus-sign {
-      color: #FFA500;
-      font-weight: bold;
-    }
-  </style>
-</head>
-<body>
-  <div class="sparkles-bg"></div>
-  <div class="page-wrapper">
-    <h1 class="page-title">Pedicures</h1>
-
-    <div class="pedicure-columns">
-      <!-- Left column -->
-      <div class="pedicure-column">
-        <div class="pedicure-item">
-          <div class="pedicure-text">
-            <div class="pedicure-header">
-              <div class="pedicure-name">Classic</div>
-              <div class="pedicure-price">$45</div>
+      <div class="pedicure-columns">
+        <!-- Left column -->
+        <div class="pedicure-column">
+          <div class="pedicure-item">
+            <div class="pedicure-text">
+              <div class="pedicure-header">
+                <div class="pedicure-name">Classic</div>
+                <div class="pedicure-price">$45</div>
+              </div>
+              <div class="pedicure-description">
+                Cleaning of cuticles, trimming & shaping of the nails, pumice,
+                massage & choice of regular polish.
+              </div>
             </div>
-            <div class="pedicure-description">
-              Cleaning of cuticles, trimming & shaping of the nails, pumice, massage & choice of regular polish.
+            <div class="pedicure-image-single">
+              <img src="classic.png" alt="Classic" />
             </div>
           </div>
-          <div class="pedicure-image-single"><img src="classic.png" alt="Classic"></div>
+
+          <div class="pedicure-item">
+            <div class="pedicure-text">
+              <div class="pedicure-header">
+                <div class="pedicure-name">Luxury</div>
+                <div class="pedicure-price">$55</div>
+              </div>
+              <div class="pedicure-description">
+                Classic Pedicure + callus removal, pumice, sugar scrub,
+                moisturizing mask, massage, 2 hot towels & choice of regular
+                polish.
+              </div>
+            </div>
+            <div class="pedicure-image">
+              <img
+                src="luxury1.png"
+                alt="Luxury"
+                data-images='["luxury2.png", "luxury3.png", "luxury4.png", "luxury5.png"]'
+              />
+            </div>
+            <!-- <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Luxury"></div> -->
+          </div>
         </div>
 
-        <div class="pedicure-item">
-          <div class="pedicure-text">
-            <div class="pedicure-header">
-              <div class="pedicure-name">Luxury</div>
-              <div class="pedicure-price">$55</div>
+        <!-- Right column -->
+        <div class="pedicure-column">
+          <div class="pedicure-item">
+            <div class="pedicure-text">
+              <div class="pedicure-header">
+                <div class="pedicure-name">Detoxing Collagen Therapy</div>
+                <div class="pedicure-price">$65</div>
+              </div>
+              <div class="pedicure-description">
+                Classic Pedicure + collagen & radiant salt soak, callus removal,
+                pumice, collagen sugar scrub, collagen mask, massage, 2 hot
+                towels & choice of regular polish.
+              </div>
             </div>
-            <div class="pedicure-description">
-              Classic Pedicure + callus removal, pumice, sugar scrub, moisturizing mask, massage, 2 hot towels & choice of regular polish.
+            <div class="pedicure-image">
+              <img
+                src="collagen1.png"
+                alt="Detoxing Collagen Therapy"
+                data-images='["collagen2.png", "collagen3.png", "collagen4.png", "collagen5.png"]'
+              />
             </div>
+
+            <!-- <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Collagen Therapy"></div> -->
           </div>
-          <div class="pedicure-image">
-            <img src="luxury1.png" 
-                alt="Luxury" 
-                data-images='["luxury2.png", "luxury3.png", "luxury4.png", "luxury5.png"]'>
+
+          <div class="pedicure-item">
+            <div class="pedicure-text">
+              <div class="pedicure-header">
+                <div class="pedicure-name">Detoxing Royal Volcano</div>
+                <div class="pedicure-price">$75</div>
+              </div>
+              <div class="pedicure-description">
+                Classic Pedicure + fizzing volcano crystal soak, callus removal,
+                pumice, crystal sugar scrub, volcano mask, hot stone massage,
+                paraffin, 2 hot towels & choice of regular polish.
+              </div>
+            </div>
+            <div class="pedicure-image">
+              <img
+                src="volcanobg1.png"
+                alt="Royal Volcano"
+                data-images='["volcanobg5.png", "volcanobg6.png", "volcanobg4.png", "volcanobg7.png", "volcanobg3.png", "volcanobg8.png", "volcanobg2.png", "volcanobg9.png"]'
+              />
+            </div>
+            <!-- <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Royal Volcano"></div> -->
           </div>
-          <!-- <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Luxury"></div> -->
         </div>
       </div>
 
-      <!-- Right column -->
-      <div class="pedicure-column">
-        <div class="pedicure-item">
-          <div class="pedicure-text">
-            <div class="pedicure-header">
-              <div class="pedicure-name">Detoxing Collagen Therapy</div>
-              <div class="pedicure-price">$65</div>
-            </div>
-            <div class="pedicure-description">
-              Classic Pedicure + collagen & radiant salt soak, callus removal, pumice, collagen sugar scrub, collagen mask, massage, 2 hot towels & choice of regular polish.
-            </div>
-          </div>
-          <div class="pedicure-image">
-            <img src="collagen1.png" 
-                alt="Detoxing Collagen Therapy" 
-                data-images='["collagen2.png", "collagen3.png", "collagen4.png", "collagen5.png"]'>
-          </div>
-
-          <!-- <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Collagen Therapy"></div> -->
-        </div>
-
-        <div class="pedicure-item">
-          <div class="pedicure-text">
-            <div class="pedicure-header">
-              <div class="pedicure-name">Detoxing Royal Volcano</div>
-              <div class="pedicure-price">$75</div>
-            </div>
-            <div class="pedicure-description">
-              Classic Pedicure + fizzing volcano crystal soak, callus removal, pumice, crystal sugar scrub, volcano mask, hot stone massage, paraffin, 2 hot towels & choice of regular polish.
-            </div>
-          </div>
-          <div class="pedicure-image">
-            <img src="volcanobg1.png" 
-                alt="Royal Volcano" 
-                data-images='["volcanobg5.png", "volcanobg6.png", "volcanobg4.png", "volcanobg7.png", "volcanobg3.png", "volcanobg8.png", "volcanobg2.png", "volcanobg9.png"]'>
-          </div>
-          <!-- <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Royal Volcano"></div> -->
-        </div>
-      </div>
+      <!-- Extras table -->
+      <table class="extras-table">
+        <tbody>
+          <tr>
+            <td>Add French Tips</td>
+            <td>$5<span class="plus-sign">+</span></td>
+          </tr>
+          <tr>
+            <td>Add Gel to Pedicure</td>
+            <td>$20<span class="plus-sign">+</span></td>
+          </tr>
+          <tr>
+            <td>Gel (Shellac) Polish Change Toes</td>
+            <td>$35<span class="plus-sign">+</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const flipInterval = 5000; // change every 4 seconds
+      const images = document.querySelectorAll(".pedicure-image img");
 
-    <!-- Extras table -->
-    <table class="extras-table">
-      <tbody>
-        <tr><td>Add French Tips</td><td>$5<span class="plus-sign">+</span></td></tr>
-        <tr><td>Add Gel to Pedicure</td><td>$20<span class="plus-sign">+</span></td></tr>
-        <tr><td>Gel (Shellac) Polish Change Toes</td><td>$35<span class="plus-sign">+</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-</body>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const flipInterval = 5000; // change every 4 seconds
-    const images = document.querySelectorAll(".pedicure-image img");
+      images.forEach((img) => {
+        const imageList = JSON.parse(img.getAttribute("data-images"));
+        let index = 0;
 
-    images.forEach(img => {
-      const imageList = JSON.parse(img.getAttribute("data-images"));
-      let index = 0;
-
-      setInterval(() => {
-        index = (index + 1) % imageList.length;
-        img.style.opacity = 0; // fade out
-        setTimeout(() => {
-          img.src = imageList[index];
-          img.style.opacity = 1; // fade in
-        }, 500);
-      }, flipInterval);
+        setInterval(() => {
+          index = (index + 1) % imageList.length;
+          img.style.opacity = 0; // fade out
+          setTimeout(() => {
+            img.src = imageList[index];
+            img.style.opacity = 1; // fade in
+          }, 500);
+        }, flipInterval);
+      });
     });
-  });
 
-  class Sparkles {
-  constructor(sparkleCount = 300) {
-    this.sparkleCount = sparkleCount;
-    this.colors = [
-      '#FFD700', // gold
-      '#FFC300', // golden yellow
-      '#FFB700', // deeper gold
-      '#FFA500', // orange-gold accent
-      '#FFF5BA'  // soft pale gold shimmer
-    ];
-  }
+    class Sparkles {
+      constructor(sparkleCount = 300) {
+        this.sparkleCount = sparkleCount;
+        this.colors = [
+          "#FFD700", // gold
+          "#FFC300", // golden yellow
+          "#FFB700", // deeper gold
+          "#FFA500", // orange-gold accent
+          "#FFF5BA", // soft pale gold shimmer
+        ];
+      }
 
-  render() {
-    const container = document.querySelector('.sparkles-bg');
-    if (!container) {
-      console.error('Sparkles container with class .sparkles-bg not found.');
-      return;
+      render() {
+        const container = document.querySelector(".sparkles-bg");
+        if (!container) {
+          console.error(
+            "Sparkles container with class .sparkles-bg not found."
+          );
+          return;
+        }
+
+        for (let i = 0; i < this.sparkleCount; i++) {
+          const sparkle = document.createElement("div");
+          const size = Math.random() * 3 + 1;
+          const colorHex =
+            this.colors[Math.floor(Math.random() * this.colors.length)];
+
+          sparkle.style.position = "absolute";
+          sparkle.style.borderRadius = "50%";
+          sparkle.style.animation = `fade-in-out 5s ease-in-out infinite`;
+          sparkle.style.backgroundColor = colorHex;
+          sparkle.style.width = `${size}px`;
+          sparkle.style.height = `${size}px`;
+          sparkle.style.top = `${Math.random() * 100}vh`;
+          sparkle.style.left = `${Math.random() * 100}vw`;
+          sparkle.style.animationDelay = `${Math.random() * 5}s`;
+          sparkle.style.boxShadow = `0 0 ${size * 2}px ${colorHex}`;
+
+          container.appendChild(sparkle);
+        }
+      }
     }
 
-    for (let i = 0; i < this.sparkleCount; i++) {
-      const sparkle = document.createElement("div");
-      const size = Math.random() * 3 + 1;
-      const colorHex = this.colors[Math.floor(Math.random() * this.colors.length)];
-
-      sparkle.style.position = 'absolute';
-      sparkle.style.borderRadius = '50%';
-      sparkle.style.animation = `fade-in-out 5s ease-in-out infinite`;
-      sparkle.style.backgroundColor = colorHex;
-      sparkle.style.width = `${size}px`;
-      sparkle.style.height = `${size}px`;
-      sparkle.style.top = `${Math.random() * 100}vh`;
-      sparkle.style.left = `${Math.random() * 100}vw`;
-      sparkle.style.animationDelay = `${Math.random() * 5}s`;
-      sparkle.style.boxShadow = `0 0 ${size * 2}px ${colorHex}`;
-
-      container.appendChild(sparkle);
-    }
-  }
-}
-
-// Wait for the DOM to be fully loaded before running the script
-document.addEventListener('DOMContentLoaded', () => {
-  const sparkles = new Sparkles();
-  sparkles.render();
-});
-
-</script>
+    // Wait for the DOM to be fully loaded before running the script
+    document.addEventListener("DOMContentLoaded", () => {
+      const sparkles = new Sparkles();
+      sparkles.render();
+    });
+  </script>
 </html>
