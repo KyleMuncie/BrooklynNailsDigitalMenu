@@ -135,6 +135,14 @@
       align-self: flex-start;   /* ensures image aligns to top */
       transition: opacity 0.5s ease-in-out;
     }
+    .pedicure-image-single img {
+      width: 750px;
+      height: 750px;
+      border-radius: 10px;
+      object-fit: cover;
+      align-self: flex-start;   /* ensures image aligns to top */
+      transition: opacity 0.5s ease-in-out;
+    }
 
     .extras-table {
       margin-top: 30px;
@@ -174,7 +182,7 @@
               Cleaning of cuticles, trimming & shaping of the nails, pumice, massage & choice of regular polish.
             </div>
           </div>
-          <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Classic"></div>
+          <div class="pedicure-image-single"><img src="classic.png" alt="Classic"></div>
         </div>
 
         <div class="pedicure-item">
@@ -187,7 +195,12 @@
               Classic Pedicure + callus removal, pumice, sugar scrub, moisturizing mask, massage, 2 hot towels & choice of regular polish.
             </div>
           </div>
-          <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Luxury"></div>
+          <div class="pedicure-image">
+            <img src="luxury1.png" 
+                alt="Luxury" 
+                data-images='["luxury2.png", "luxury3.png", "luxury4.png", "luxury5.png"]'>
+          </div>
+          <!-- <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Luxury"></div> -->
         </div>
       </div>
 
@@ -203,7 +216,13 @@
               Classic Pedicure + collagen & radiant salt soak, callus removal, pumice, collagen sugar scrub, collagen mask, massage, 2 hot towels & choice of regular polish.
             </div>
           </div>
-          <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Collagen Therapy"></div>
+          <div class="pedicure-image">
+            <img src="collagen1.png" 
+                alt="Detoxing Collagen Therapy" 
+                data-images='["collagen2.png", "collagen3.png", "collagen4.png", "collagen5.png"]'>
+          </div>
+
+          <!-- <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Collagen Therapy"></div> -->
         </div>
 
         <div class="pedicure-item">
@@ -217,9 +236,9 @@
             </div>
           </div>
           <div class="pedicure-image">
-            <img src="volcano1.png" 
+            <img src="volcanobg1.png" 
                 alt="Royal Volcano" 
-                data-images='["volcano2.png", "volcano3.png"]'>
+                data-images='["volcanobg5.png", "volcanobg6.png", "volcanobg4.png", "volcanobg7.png", "volcanobg3.png", "volcanobg8.png", "volcanobg2.png", "volcanobg9.png"]'>
           </div>
           <!-- <div class="pedicure-image"><img src="royalvolcano.jpg" alt="Royal Volcano"></div> -->
         </div>
@@ -235,7 +254,6 @@
       </tbody>
     </table>
   </div>
-  <script src="script.js"></script>
 </body>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
